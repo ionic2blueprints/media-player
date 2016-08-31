@@ -1,0 +1,23 @@
+<ion-footer class="im-controls">
+  <ion-toolbar>
+    <ion-range min="0" snaps="1" [max]="maxSlide" [ngFormControl]="seekbar" (ionChange)="seekTo($event)" dark>
+      <ion-label range-left>{{currentTime | imClock:'seconds'}}</ion-label>
+      <ion-label range-right>{{maxSlide | imClock:'seconds'}}</ion-label>
+    </ion-range>
+  </ion-toolbar>
+
+  <ion-toolbar class="control-buttons" dark>
+    <ion-row>
+      <ion-col>
+        <button [disabled]="!isPlaylist" center (click)="backBtn()" clear light><ion-icon name="skip-backward"></ion-icon></button>
+      </ion-col>
+      <ion-col>
+        <button *ngIf="isPlaying" clear light (click)="pauseBtn()"><ion-icon name="pause"></ion-icon></button>
+        <button *ngIf="!isPlaying" clear light (click)="playBtn()"><ion-icon name="play"></ion-icon></button>
+      </ion-col>
+      <ion-col>
+        <button [disabled]="!isPlaylist" (click)="nextBtn()" clear light><ion-icon name="skip-forward"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

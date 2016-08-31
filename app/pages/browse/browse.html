@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar dark>
+    <button menuToggle><ion-icon name="menu"></ion-icon></button>
+    <ion-title>
+      Browse
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <ion-list>
+    <a ion-item *ngFor="let file of files">
+      <ion-icon *ngIf="file.isFile" name="document" item-left></ion-icon>
+      <ion-icon *ngIf="file.isDirectory" name="folder" item-left></ion-icon>
+      {{file.name}}
+      <button primary item-right *ngIf="isVideo(file)" (click)="openVideo(file)">Play Video</button>
+      <button primary item-right *ngIf="!file.isFile" (click)="openDocument(file)">Open</button>
+      <button primary item-right *ngIf="isAudio(file)" (click)="open(file)">Play</button>
+      <button primary item-right *ngIf="isAudio(file)" (click)="addToPlaylist(file)">Add to PlayList</button>
+    </a>
+  </ion-list>
+</ion-content>

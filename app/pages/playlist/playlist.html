@@ -1,0 +1,30 @@
+<ion-header>
+<ion-navbar dark>
+  <button menuToggle><ion-icon name="menu"></ion-icon></button>
+  <ion-title>
+    Playlist
+  </ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-item *ngIf="!playlist?.tracks">
+      Playlist is Empty!
+    </ion-item>
+    <button *ngIf="playlist?.tracks"full clear (click)="play()">Play</button>
+    <ion-list #list>
+      <ion-item-sliding #slide *ngFor="let track of playlist?.tracks; let i = index">
+        <ion-item>
+            {{track.name}}
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button (click)="deleteTrack(i)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+</ion-content>
