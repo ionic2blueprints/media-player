@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button menuToggle ion-button icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Player
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+  <img src="/assets/img/back.jpg"/>
+  <ion-card-content>
+    <ion-card-title *ngIf="name">
+      {{name}}
+    </ion-card-title>
+    <ion-card-title *ngIf="!name">
+      Select a File to Play
+    </ion-card-title>
+  </ion-card-content>
+</ion-card>
+</ion-content>
+
+<im-controls *ngIf="name" [isPlaylist]="isPlaylist" (next)="getFileName()" (back)="getFileName()"></im-controls>

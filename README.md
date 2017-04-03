@@ -1,9 +1,10 @@
-# Media Player with Ionic 2
+# Media Player App with Ionic 2
 
 # Steps to use
 * clone this repo
 * npm install
-* Install the required cordova plugins
+* ionic state restore
+* Add the required platform like ```ionic platform add android``` or ```ionic platform add ios```
 * Then ```ionic build android``` or ```ionic build ios```
 
-# Based on Ionic 2 Beta 10
+# Based on Ionic 2.3.0
